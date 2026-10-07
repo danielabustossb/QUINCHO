@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiespacio Spilimbergo | Quincho con pileta y asador en Santa Cecilia, Córdoba</title>
+<meta name="description" content="Alquiler de quincho para cumpleaños, reuniones familiares y festejos en Barrio Santa Cecilia, Córdoba. Quincho con techo, pileta, asador, vajilla, música y más. Hasta 35 personas.">
+<style>
+  :root{
+    --naranja:#e8751a;
+    --naranja-osc:#c85f0d;
+    --petroleo:#0f4c5c;
+    --petroleo-osc:#0a3540;
+    --crema:#fff8f0;
+    --texto:#1d2b30;
+    --suave:#5b6b70;
+    --borde:#ecdfd1;
+    --blanco:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--texto);background:var(--crema);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  section{padding:56px 0}
+  h1,h2,h3{line-height:1.2}
+  h2{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--petroleo);margin-bottom:8px}
+  .sub{color:var(--suave);margin-bottom:28px;max-width:60ch}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--naranja);color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:999px;border:0;font-size:1rem;cursor:pointer;transition:background .2s,transform .2s}
+  .btn:hover{background:var(--naranja-osc);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;border:2px solid #fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.15)}
+
+  /* Barra superior */
+  header{position:sticky;top:0;z-index:20;background:rgba(10,53,64,.96);backdrop-filter:blur(6px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{color:#fff;font-weight:800;letter-spacing:.3px;text-decoration:none;font-size:1.05rem}
+  .logo span{color:var(--naranja)}
+  nav{display:none;gap:22px}
+  nav a{color:#e8f1f3;text-decoration:none;font-size:.95rem}
+  nav a:hover{color:var(--naranja)}
+  .bar .btn{padding:9px 16px;font-size:.9rem}
+  @media(min-width:820px){nav{display:flex}}
+
+  /* Portada */
+  .hero{background:linear-gradient(135deg,rgba(10,53,64,.88),rgba(10,53,64,.55)),url(fotos/pileta.jpg) center/cover,var(--petroleo);color:#fff;padding:84px 0 72px}
+  /* Para usar una foto real de portada: guardala como fotos/portada.jpg y agregá en .hero: background-image:linear-gradient(rgba(10,53,64,.65),rgba(10,53,64,.65)),url(fotos/portada.jpg);background-size:cover;background-position:center */
+  .hero h1{font-size:clamp(2rem,6vw,3.4rem);max-width:16ch;margin-bottom:14px}
+  .hero p{font-size:1.12rem;max-width:52ch;margin-bottom:26px;color:#e6f0f2}
+  .hero .acc{display:flex;flex-wrap:wrap;gap:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 12px;border-radius:999px;font-size:.88rem}
+
+  /* Incluye */
+  .grid-inc{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:640px){.grid-inc{grid-template-columns:repeat(4,1fr)}}
+  .inc{background:var(--blanco);border:1px solid var(--borde);border-radius:14px;padding:16px 12px;text-align:center;font-weight:600;font-size:.95rem}
+  .inc b{display:block;font-size:1.7rem;margin-bottom:4px}
+
+  /* Galería */
+  .galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(min-width:760px){.galeria{grid-template-columns:repeat(3,1fr)}}
+  .galeria figure{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e5ddd2}
+  .galeria img{width:100%;height:100%;object-fit:cover}
+  .galeria figure.ph{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f0e6d9,#f0e6d9 12px,#f6eee3 12px,#f6eee3 24px);color:var(--suave);font-size:.9rem;text-align:center;padding:10px}
+  .galeria figure.ph img{display:none}
+  .galeria figure.ph::after{content:attr(data-nombre) " · agregar foto en fotos/" attr(data-archivo)}
+  .videos{display:grid;gap:10px;margin-top:10px}
+  @media(min-width:760px){.videos{grid-template-columns:1fr 1fr}}
+  .videos{align-items:center;justify-items:center}
+  .videos video{width:100%;max-height:480px;border-radius:14px;background:var(--petroleo-osc);object-fit:contain}
+  .video{margin-top:18px;border-radius:14px;overflow:hidden;background:var(--petroleo-osc);color:#fff;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+  .video video{width:100%;height:100%;object-fit:cover}
+
+  /* Tarifas */
+  .tablas{display:grid;gap:18px}
+  @media(min-width:820px){.tablas{grid-template-columns:1fr 1fr}}
+  .tarifa{background:var(--blanco);border:1px solid var(--borde);border-radius:16px;overflow:hidden}
+  .tarifa h3{background:var(--petroleo);color:#fff;padding:14px 18px;font-size:1.05rem}
+  .tarifa table{width:100%;border-collapse:collapse}
+  .tarifa th,.tarifa td{padding:12px 18px;text-align:left;border-top:1px solid var(--borde);font-size:.95rem}
+  .tarifa th{color:var(--suave);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.4px}
+  .tarifa td.p{font-weight:800;color:var(--naranja-osc);white-space:nowrap}
+  .nota{margin-top:18px;background:#fff3e2;border-left:4px solid var(--naranja);padding:14px 16px;border-radius:8px;font-size:.95rem}
+  .horarios{display:grid;gap:12px;margin-top:20px}
+  @media(min-width:700px){.horarios{grid-template-columns:1fr 1fr}}
+  .h-box{background:var(--blanco);border:1px solid var(--borde);border-radius:14px;padding:16px}
+  .h-box b{color:var(--petroleo)}
+
+  /* Pasos */
+  .pasos{display:grid;gap:14px;counter-reset:p}
+  @media(min-width:760px){.pasos{grid-template-columns:repeat(3,1fr)}}
+  .paso{background:var(--blanco);border:1px solid var(--borde);border-radius:14px;padding:20px 18px;counter-increment:p}
+  .paso::before{content:counter(p);display:flex;width:34px;height:34px;border-radius:50%;background:var(--naranja);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:10px}
+  .paso h3{font-size:1.05rem;margin-bottom:4px;color:var(--petroleo)}
+
+  /* Opiniones */
+  .ops{display:grid;gap:14px}
+  @media(min-width:760px){.ops{grid-template-columns:repeat(3,1fr)}}
+  .op{background:var(--blanco);border:1px solid var(--borde);border-radius:14px;padding:20px 18px}
+  .op .st{color:var(--naranja);letter-spacing:2px;margin-bottom:8px}
+  .op p{margin-bottom:12px}
+  .op small{color:var(--suave);font-weight:600}
+
+  /* Reglas */
+  .reglas{background:var(--petroleo);color:#e8f1f3}
+  .reglas h2{color:#fff}
+  .reglas .sub{color:#b9d0d6}
+  .lista-r{display:grid;gap:10px}
+  @media(min-width:760px){.lista-r{grid-template-columns:1fr 1fr}}
+  .lista-r div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px}
+  .lista-r b{color:#ffd9b4}
+
+  /* FAQ */
+  details{background:var(--blanco);border:1px solid var(--borde);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700;color:var(--petroleo)}
+  details p{margin-top:8px;color:var(--suave)}
+
+  /* Contacto */
+  .contacto{display:grid;gap:20px}
+  @media(min-width:820px){.contacto{grid-template-columns:1fr 1.2fr;align-items:start}}
+  .mapa{border-radius:16px;overflow:hidden;border:1px solid var(--borde);aspect-ratio:4/3;background:#e5ddd2}
+  .mapa iframe{width:100%;height:100%;border:0}
+  .dato{margin-bottom:14px}
+  .dato b{display:block;color:var(--petroleo)}
+
+  footer{background:var(--petroleo-osc);color:#b9d0d6;text-align:center;padding:26px 16px 90px;font-size:.9rem}
+  footer strong{color:#fff}
+
+  /* Botón WhatsApp flotante */
+  .wa{position:fixed;right:16px;bottom:16px;z-index:30;background:#25d366;color:#fff;text-decoration:none;font-weight:700;padding:14px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px}
+  .wa:hover{background:#1fb457}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"EventVenue",
+  "name":"Multiespacio Spilimbergo",
+  "description":"Quincho con techo, pileta y asador para cumpleaños, reuniones familiares y festejos hasta 35 personas.",
+  "telephone":"+54 351 809 3213",
+  "address":{"@type":"PostalAddress","streetAddress":"Colectora Interna esquina Lino Spilimbergo","addressLocality":"Córdoba","addressRegion":"Córdoba","addressCountry":"AR","name":"Barrio Santa Cecilia"},
+  "maximumAttendeeCapacity":35
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#inicio" class="logo">MULTIESPACIO <span>SPILIMBERGO</span></a>
+    <nav>
+      <a href="#incluye">Qué incluye</a>
+      <a href="#galeria">Fotos</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#contacto">Ubicación</a>
+    </nav>
+    <a class="btn" href="https://wa.me/5493518093213?text=Hola!%20Quiero%20consultar%20disponibilidad%20en%20Multiespacio%20Spilimbergo" target="_blank" rel="noopener">Consultar</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <h1>Tu evento, cómodo y sin preocupaciones</h1>
+    <p>Quincho con techo, pileta y asador en Barrio Santa Cecilia, Córdoba. Todo equipado para cumpleaños, reuniones familiares y festejos hasta 35 personas.</p>
+    <div class="acc">
+      <a class="btn" href="https://wa.me/5493518093213?text=Hola!%20Quiero%20consultar%20disponibilidad%20en%20Multiespacio%20Spilimbergo" target="_blank" rel="noopener">Consultar fecha por WhatsApp</a>
+      <a class="btn ghost" href="#galeria">Ver el espacio</a>
+    </div>
+    <div class="chips">
+      <span class="chip">🏊 Pileta</span>
+      <span class="chip">🔥 Asador</span>
+      <span class="chip">👥 Hasta 35 personas</span>
+      <span class="chip">🚗 Estacionamiento</span>
+    </div>
+  </div>
+</section>
+
+<section id="incluye">
+  <div class="wrap">
+    <h2>Todo incluido en el alquiler</h2>
+    <p class="sub">Llegás con la comida y las ganas de festejar. Lo demás está.</p>
+    <div class="grid-inc">
+      <div class="inc"><b>🍽️</b>Vajilla</div>
+      <div class="inc"><b>🏊</b>Pileta</div>
+      <div class="inc"><b>🔥</b>Asador</div>
+      <div class="inc"><b>🪑</b>Mesas y sillas</div>
+      <div class="inc"><b>🧺</b>Manteles</div>
+      <div class="inc"><b>🎶</b>Música</div>
+      <div class="inc"><b>🪩</b>Luces</div>
+      <div class="inc"><b>🍹</b>Barra de tragos</div>
+      <div class="inc"><b>🕹️</b>Metegol</div>
+      <div class="inc"><b>📸</b>Candy bar</div>
+      <div class="inc"><b>❄️</b>Freezer</div>
+      <div class="inc"><b>🫖</b>Pava eléctrica</div>
+      <div class="inc"><b>🚽</b>Baño</div>
+      <div class="inc"><b>🛜</b>Wifi</div>
+      <div class="inc"><b>🌡️</b>Estufa</div>
+      <div class="inc"><b>🪭</b>Ventilador</div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" style="background:#fff">
+  <div class="wrap">
+    <h2>Conocelo antes de reservar</h2>
+    <p class="sub">Fotos reales del lugar. Si querés ver más o hacer una visita, escribinos.</p>
+    <div class="galeria">
+      <figure data-nombre="Pileta" data-archivo="pileta.jpg"><img src="fotos/pileta.jpg" alt="Pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Quincho" data-archivo="salon.jpg"><img src="fotos/salon.jpg" alt="Quincho con techo, mesas y sillas" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Mesas armadas" data-archivo="mesas.jpg"><img src="fotos/mesas.jpg" alt="Mesas armadas para un cumpleaños" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Galería techada" data-archivo="galeria-techada.jpg"><img src="fotos/galeria-techada.jpg" alt="Galería techada con vista a la pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="De noche" data-archivo="noche-mesas.jpg"><img src="fotos/noche-mesas.jpg" alt="El quincho de noche" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Luces" data-archivo="noche-luces.jpg"><img src="fotos/noche-luces.jpg" alt="Luces y ambiente de fiesta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Luces de colores" data-archivo="luces.jpg"><img src="fotos/luces.jpg" alt="Luces de colores" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Barra de tragos" data-archivo="barra.jpg"><img src="fotos/barra.jpg" alt="Barra de tragos" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Baño" data-archivo="bano.jpg"><img src="fotos/bano.jpg" alt="Baño" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+    </div>
+    <div class="videos">
+      <video src="fotos/recorrido.mp4" controls playsinline preload="metadata" poster="fotos/salon.jpg"></video>
+      <video src="fotos/recorrido2.mp4" controls playsinline preload="metadata" poster="fotos/noche-luces.jpg"></video>
+    </div>
+  </div>
+</section>
+
+<section id="tarifas">
+  <div class="wrap">
+    <h2>Tarifas</h2>
+    <p class="sub">Valores por evento. Elegí si son hasta 25 o hasta 35 personas.</p>
+    <div class="tablas">
+      <div class="tarifa">
+        <h3>Septiembre y Octubre</h3>
+        <table>
+          <tr><th>Días</th><th>Hasta 25 personas</th><th>Hasta 35 personas</th></tr>
+          <tr><td>Lunes a jueves</td><td class="p">$100.000</td><td class="p">$150.000</td></tr>
+          <tr><td>Viernes, sábado, domingo y feriados</td><td class="p">$150.000</td><td class="p">$200.000</td></tr>
+        </table>
+      </div>
+      <div class="tarifa">
+        <h3>Noviembre a Febrero</h3>
+        <table>
+          <tr><th>Días</th><th>Hasta 25 personas</th><th>Hasta 35 personas</th></tr>
+          <tr><td>Lunes a jueves</td><td class="p">$200.000</td><td class="p">$250.000</td></tr>
+          <tr><td>Viernes, sábado, domingo y feriados</td><td class="p">$300.000</td><td class="p">$350.000</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="nota"><b>Otras fechas:</b> consultanos por WhatsApp y te pasamos la tarifa.<br>
+      <b>Depósito reembolsable:</b> $50.000 por posibles daños. &nbsp;·&nbsp; <b>Cuidador de vehículos</b> (opcional): $20.000.</p>
+
+    <div class="horarios">
+      <div class="h-box"><b>Lunes a jueves</b><br>16:00 a 21:00 hs</div>
+      <div class="h-box"><b>Fines de semana y feriados</b><br>Turno día: 11:00 a 19:00 hs<br>Turno noche: 21:00 a 04:00 hs</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="wrap">
+    <h2>Cómo reservar</h2>
+    <p class="sub">Simple y en pocos pasos.</p>
+    <div class="pasos">
+      <div class="paso"><h3>Consultá la fecha</h3><p>Escribinos por WhatsApp con fecha, cantidad de personas y tipo de evento.</p></div>
+      <div class="paso"><h3>Señá el 50%</h3><p>Reservás con el 50% del alquiler más el depósito reembolsable de $50.000. Enviás el comprobante y la fecha queda tuya.</p></div>
+      <div class="paso"><h3>Pagá el saldo y disfrutá</h3><p>El resto se abona al ingresar, el día del evento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones">
+  <div class="wrap">
+    <h2>Lo que dicen quienes ya festejaron acá</h2>
+    <p class="sub">Comentarios reales de nuestros clientes.</p>
+    <div class="ops">
+      <div class="op"><div class="st">★★★★★</div><p>“La pasamos increíble y estuvimos muy cómodos, que eso fue lo mejor.”</p><small>Noe · Enero 2026</small></div>
+      <div class="op"><div class="st">★★★★★</div><p>“Súper recomendable. Hermoso todo, la pasamos hermoso.”</p><small>Luci · Marzo 2026</small></div>
+      <div class="op"><div class="st">★★★★★</div><p>“Me pareció muy lindo el espacio y muy cómodo.”</p><small>Emilio · Junio 2026</small></div>
+      <div class="op"><div class="st">★★★★★</div><p>“A mis invitados también les gustó.”</p><small>Cami · Marzo 2026</small></div>
+      <div class="op"><div class="st">★★★★★</div><p>“Nos encantó el lugar y nos sentimos re bien. Muchos invitados querían alquilar para sus fiestas.”</p><small>Lu · Septiembre 2026</small></div>
+      <div class="op"><div class="st">★★★★★</div><p>“Hermoso lugar, muchas gracias.”</p><small>Gabi · Febrero 2026</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="reglas">
+  <div class="wrap">
+    <h2>Reglas claras para que todo salga bien</h2>
+    <p class="sub">Para cuidar el lugar y que todos disfruten.</p>
+    <div class="lista-r">
+      <div><b>Seña:</b> no se reserva sin comprobante de pago.</div>
+      <div><b>Pago:</b> el saldo completo se abona al ingresar el día del evento.</div>
+      <div><b>Cancelaciones:</b> la seña no se devuelve.</div>
+      <div><b>Mal tiempo:</b> no se reprograman fechas por clima.</div>
+      <div><b>Prohibido:</b> UPD y fiestas clandestinas.</div>
+      <div><b>Conducta:</b> cero tolerancia a la violencia y los disturbios. El espacio se reserva el derecho de admisión.</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <p class="sub">Lo que más nos consultan.</p>
+    <details><summary>¿Cuántas personas entran?</summary><p>Tenemos dos tarifas: hasta 25 personas y hasta 35 personas.</p></details>
+    <details><summary>¿Tengo que llevar vajilla, mesas o sillas?</summary><p>No. Incluimos vajilla, mesas, sillas y manteles. También música, luces, barra de tragos, candy bar, freezer y pava eléctrica.</p></details>
+    <details><summary>¿Se puede usar la pileta?</summary><p>Sí, la pileta está incluida en el alquiler.</p></details>
+    <details><summary>¿Hay estacionamiento?</summary><p>Sí. Además hay cuidador de vehículos opcional por $20.000.</p></details>
+    <details><summary>¿Cómo aseguro mi fecha?</summary><p>Con el 50% del alquiler más el depósito reembolsable de $50.000. Enviás el comprobante por WhatsApp y queda reservada.</p></details>
+    <details><summary>¿Qué pasa si llueve o tengo que cancelar?</summary><p>La seña no se devuelve y no se reprograman fechas por mal tiempo. Por eso el quincho cuenta con espacio abierto con techo.</p></details>
+    <details><summary>¿Puedo conocer el lugar antes?</summary><p>Escribinos por WhatsApp y coordinamos. También podés ver las fotos y el video de esta página.</p></details>
+  </div>
+</section>
+
+<section id="contacto" style="background:#fff">
+  <div class="wrap">
+    <h2>Dónde estamos</h2>
+    <p class="sub">Barrio Santa Cecilia, Córdoba.</p>
+    <div class="contacto">
+      <div>
+        <div class="dato"><b>📍 Dirección</b>Colectora Interna esquina Lino Spilimbergo, Barrio Santa Cecilia, Córdoba</div>
+        <div class="dato"><b>📲 WhatsApp</b><a href="https://wa.me/5493518093213" target="_blank" rel="noopener">351 809 3213</a></div>
+        <a class="btn" href="https://maps.app.goo.gl/a8RrfST4KU8sw9C29" target="_blank" rel="noopener">Cómo llegar</a>
+        <p style="margin-top:14px"><a class="btn" style="background:#25d366" href="https://wa.me/5493518093213?text=Hola!%20Quiero%20consultar%20disponibilidad%20en%20Multiespacio%20Spilimbergo" target="_blank" rel="noopener">Escribinos por WhatsApp</a></p>
+      </div>
+      <div class="mapa">
+        <iframe title="Mapa de Multiespacio Spilimbergo" loading="lazy" src="https://maps.google.com/maps?q=-31.354318618774414,-64.2261734008789&z=17&hl=es&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>Multiespacio Spilimbergo</strong><br>
+  Colectora Interna esq. Lino Spilimbergo · Barrio Santa Cecilia · Córdoba<br>
+  © 2026 · Todos los derechos reservados
+</footer>
+
+<a class="wa" href="https://wa.me/5493518093213?text=Hola!%20Quiero%20consultar%20disponibilidad%20en%20Multiespacio%20Spilimbergo" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">💬 WhatsApp</a>
+
+</body>
+</html>
