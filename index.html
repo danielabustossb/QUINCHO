@@ -44,10 +44,10 @@
   @media(min-width:820px){nav{display:flex}}
 
   /* Portada */
-  .hero{background:linear-gradient(135deg,rgba(10,53,64,.62),rgba(10,53,64,.22)),url(fotos/pileta.jpg) center/cover,var(--petroleo);color:#fff;padding:96px 0 84px}
+  .hero{background:linear-gradient(135deg,rgba(10,53,64,.62),rgba(10,53,64,.22)),url(fotos/pileta.jpg?v=2) center/cover,var(--petroleo);color:#fff;padding:96px 0 84px}
   .hero h1,.hero p{text-shadow:0 2px 14px rgba(0,0,0,.55)}
   .hero .chip{background:rgba(10,53,64,.55)}
-  /* Para usar una foto real de portada: guardala como fotos/portada.jpg y agregá en .hero: background-image:linear-gradient(rgba(10,53,64,.65),rgba(10,53,64,.65)),url(fotos/portada.jpg);background-size:cover;background-position:center */
+  /* Para usar una foto real de portada: guardala como fotos/portada.jpg?v=2 y agregá en .hero: background-image:linear-gradient(rgba(10,53,64,.65),rgba(10,53,64,.65)),url(fotos/portada.jpg?v=2);background-size:cover;background-position:center */
   .hero h1{font-size:clamp(2rem,6vw,3.4rem);max-width:16ch;margin-bottom:14px}
   .hero p{font-size:1.12rem;max-width:52ch;margin-bottom:26px;color:#e6f0f2}
   .hero .acc{display:flex;flex-wrap:wrap;gap:12px}
@@ -68,10 +68,8 @@
   .galeria figure.ph{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f0e6d9,#f0e6d9 12px,#f6eee3 12px,#f6eee3 24px);color:var(--suave);font-size:.9rem;text-align:center;padding:10px}
   .galeria figure.ph img{display:none}
   .galeria figure.ph::after{content:attr(data-nombre) " · agregar foto en fotos/" attr(data-archivo)}
-  .videos{display:grid;gap:10px;margin-top:10px}
-  @media(min-width:760px){.videos{grid-template-columns:1fr 1fr}}
-  .videos{align-items:center;justify-items:center}
-  .videos video{width:100%;max-height:480px;border-radius:14px;background:var(--petroleo-osc);object-fit:contain}
+  .videos{display:grid;gap:14px;margin-top:14px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;margin-left:auto;margin-right:auto}
+  .videos video{width:100%;aspect-ratio:9/16;border-radius:14px;background:var(--petroleo-osc);object-fit:contain}
   .video{margin-top:18px;border-radius:14px;overflow:hidden;background:var(--petroleo-osc);color:#fff;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
   .video video{width:100%;height:100%;object-fit:cover}
 
@@ -213,19 +211,25 @@
     <h2>Conocelo antes de reservar</h2>
     <p class="sub">Fotos reales del lugar. Si querés ver más o hacer una visita, escribinos.</p>
     <div class="galeria">
-      <figure data-nombre="Pileta" data-archivo="pileta.jpg"><img src="fotos/pileta.jpg" alt="Pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Quincho" data-archivo="salon.jpg"><img src="fotos/salon.jpg" alt="Quincho con techo, mesas y sillas" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Mesas armadas" data-archivo="mesas.jpg"><img src="fotos/mesas.jpg" alt="Mesas armadas para un cumpleaños" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Galería techada" data-archivo="galeria-techada.jpg"><img src="fotos/galeria-techada.jpg" alt="Galería techada con vista a la pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="De noche" data-archivo="noche-mesas.jpg"><img src="fotos/noche-mesas.jpg" alt="El quincho de noche" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Luces" data-archivo="noche-luces.jpg"><img src="fotos/noche-luces.jpg" alt="Luces y ambiente de fiesta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Luces de colores" data-archivo="luces.jpg"><img src="fotos/luces.jpg" alt="Luces de colores" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Barra de tragos" data-archivo="barra.jpg"><img src="fotos/barra.jpg" alt="Barra de tragos" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
-      <figure data-nombre="Baño" data-archivo="bano.jpg"><img src="fotos/bano.jpg" alt="Baño" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Pileta" data-archivo="pileta.jpg"><img src="fotos/pileta.jpg?v=2" alt="Pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Quincho" data-archivo="salon.jpg"><img src="fotos/salon.jpg?v=2" alt="Quincho con techo, mesas y sillas" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Mesas armadas" data-archivo="mesas.jpg"><img src="fotos/mesas.jpg?v=2" alt="Mesas armadas para un cumpleaños" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Quincho de día" data-archivo="techada-dia.jpg"><img src="fotos/techada-dia.jpg?v=2" alt="Quincho techado de día con vista a la pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Mesas de día" data-archivo="mesas-dia.jpg"><img src="fotos/mesas-dia.jpg?v=2" alt="Mesas del quincho de día" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Galería techada" data-archivo="galeria-techada.jpg"><img src="fotos/galeria-techada.jpg?v=2" alt="Galería techada con vista a la pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="De noche" data-archivo="noche-mesas.jpg"><img src="fotos/noche-mesas.jpg?v=2" alt="El quincho de noche" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Luces" data-archivo="noche-luces.jpg"><img src="fotos/noche-luces.jpg?v=2" alt="Luces y ambiente de fiesta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Luces de colores" data-archivo="luces.jpg"><img src="fotos/luces.jpg?v=2" alt="Luces de colores" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Noche en la galería" data-archivo="noche-galeria.jpg"><img src="fotos/noche-galeria.jpg?v=2" alt="Galería del quincho de noche" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Mesas de noche" data-archivo="noche-mesas2.jpg"><img src="fotos/noche-mesas2.jpg?v=2" alt="Mesas del quincho de noche" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Luces y mesas" data-archivo="luces-mesas.jpg"><img src="fotos/luces-mesas.jpg?v=2" alt="Luces de colores sobre las mesas" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Luces junto a la pileta" data-archivo="luces-pileta.jpg"><img src="fotos/luces-pileta.jpg?v=2" alt="Luces de fiesta junto a la pileta" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Barra de tragos" data-archivo="barra.jpg"><img src="fotos/barra.jpg?v=2" alt="Barra de tragos" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
+      <figure data-nombre="Baño" data-archivo="bano.jpg"><img src="fotos/bano.jpg?v=2" alt="Baño" loading="lazy" onerror="this.parentNode.classList.add('ph')"></figure>
     </div>
     <div class="videos">
-      <video src="fotos/recorrido2.mp4" controls playsinline preload="metadata" poster="fotos/barra.jpg"></video>
-      <video src="fotos/recorrido.mp4" controls playsinline preload="metadata" poster="fotos/salon.jpg"></video>
+      <video src="fotos/recorrido-vertical2.mp4?v=3" controls playsinline preload="metadata" poster="fotos/barra.jpg?v=2"></video>
+      <video src="fotos/recorrido-vertical.mp4?v=3" controls playsinline preload="metadata" poster="fotos/salon.jpg?v=2"></video>
     </div>
   </div>
 </section>
